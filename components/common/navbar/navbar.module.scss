@@ -1,0 +1,73 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 50px;
+
+  a {
+    font-size: 26px;
+    color: rgb(136, 136, 136);
+    text-decoration: none;
+  } 
+
+  .active {
+    color: black;
+  }
+
+  .desktop {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+  }
+
+  .burger {
+    display: none;
+  }
+}
+
+.mobile {
+  display: none;
+}
+
+
+@media (max-width: 479px) {
+  .navBar {
+    padding: 20px;
+    z-index: 10;
+
+    a {
+      font-size: 16px;
+    }
+
+    a, h1 {
+      margin-bottom: 0;
+    }
+    .burger {
+      display: block;
+    }
+  
+    .desktop {
+      display: none;
+    }
+  }  
+  .mobile {
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    gap: 70px;
+    z-index: 10;
+    background-color: white;
+    padding-block: 20px;
+
+    transform: translateX(-200%);
+    transition: transform 1s;
+    &.openMenu {
+      transform: translateX(0);
+      transition: transform 1s;
+    }
+
+    a {
+      margin-bottom: 0;
+    }
+  }
+}
