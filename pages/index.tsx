@@ -44,7 +44,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Banner text="PMS électronique super" subText="Spécialiste de l'amplification à lampes"/>
+      <Banner text="PMS électronique test" subText="Spécialiste de l'amplification à lampes"/>
       <section className={styles.hero}>
         <h2>{"P.M.S électronique est un atelier spécialisé dans la réparation des amplificateurs instruments et autre matériel audio"} </h2>
         <p>{"Localisé en région Nantaise, PMS électronique s'adresse aussi bien aux particuliers qu'aux professionnels soucieux d'un service réactif et de qualité"}</p>
