@@ -3,17 +3,15 @@ import { useRouter } from 'next/router'
 import styles from './navbar.module.scss'
 import Burger from '../burger/burger'
 import { useState } from 'react';
+const logo = require( '../../../public/images/logoPMS.png').default.src
 
 export default function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleBurger() {
-    console.log("ergergerg", isOpen)
     setIsOpen(!isOpen);
   }
-  
-
 
   const links = (
     <>
@@ -21,14 +19,17 @@ export default function Navbar() {
         <a className={router.asPath === '/' ? styles.active : ""}>{"L'ATELIER"}</a>
       </Link>
       <Link href="/contact">
-        <a className={router.asPath === '/contact' ? styles.active : ""}>CONTACT</a>
+        <a className={router.asPath === '/contact/' ? styles.active : ""}>CONTACT</a>
       </Link>
     </>
   )
   return (
     <>
       <nav className={styles.navBar}>
-        <h1>PMS Electronique</h1>
+      <img 
+        src={logo} 
+        alt="Logo PMS" 
+      />
         <ul className={`${styles.mobile} ${isOpen ? styles.openMenu : ''}`}>
           {links}
       </ul>

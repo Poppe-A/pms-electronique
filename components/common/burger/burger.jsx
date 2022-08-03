@@ -11,10 +11,10 @@ export default function Burger({ isOpen }) {
 
   return (
   <div className={[styles.burger, openBurgerStyle].join(' ') }>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+    <span className={styles.burgerBar}></span>
+    <span className={styles.burgerBar}></span>
+    <span className={styles.burgerBar}></span>
+    <span className={styles.burgerBar}></span>
   </div>
   
   )

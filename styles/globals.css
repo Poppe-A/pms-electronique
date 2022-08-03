@@ -52,6 +52,13 @@ table {
   min-height: 100vh;
 }
 
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div {
+	height: 100%;
+}
 /* general style */
 
 body {
@@ -85,22 +92,19 @@ h3 {
   font-size: 26px;
 }
 
-h4 {
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-p, a {
+p, a, li, h4 {
   font-size: 16px;
 	margin-bottom: 10px;
-	line-height: 28px;
+	line-height: 27px;
 }
 
 strong {
 	font-weight: bolder;
 }
 
+@media (max-width: 1200px) {}
+@media (max-width: 1024px) {}
+@media (max-width: 768px) {}
 @media (max-width: 479px) {
 	section {
 		padding: 20px 10px;

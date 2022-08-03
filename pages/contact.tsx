@@ -4,6 +4,7 @@ import Banner from "../components/common/banner/banner";
 import Layout from "../components/common/layout";
 import styles from "../styles/contact.module.scss"
 import { request } from "../libs/datocms";
+import { useEffect, useState } from "react";
 
 const INFOS_QUERY = `query HomePage($limit: IntType) {
   allInfos(first: $limit) {
@@ -30,12 +31,25 @@ export interface InfoItem {
   text: string
 }
 
-const Contact: NextPage<{allInfos: InfoItem[]}> = (props) => {
+const Contact: NextPage = () => {
+const [infoData, setInfoData] = useState<InfoItem[] | []>([])
+
+useEffect(() => {
+  request({
+    query: INFOS_QUERY,
+    variables: { limit: 10 },
+    preview: null
+  }).then(res => {
+    setInfoData(res.allInfos)
+  })
+}, [])
+
 
 let infoList = null;
-if (props.allInfos?.length) {
-  infoList = props.allInfos.map(info => 
-   <li key={info.id}><strong>{info.title}</strong> : {info.text}</li>
+
+if (infoData?.length) {
+  infoList = infoData.map(info => 
+   <li key={info.id}><span className={styles.infoTitle}>{info.title}</span> : {info.text}</li>
   )
 }
   
@@ -70,20 +84,25 @@ if (props.allInfos?.length) {
               <strong>Vendredi</strong> : 10h à 12h et 13h30 à 17h30
             </p>
           </div>
-          <div>
-          P.M.S électronique est une société inscrite au répertoire des métiers (SIRET:42139360400036)
+          <div className={styles.infosSection}>
+            <h4>{"L'atelier recommande"}</h4>
+            <p>
+              <a href="https://www.alh-effects.fr" target="_blank" rel="noreferrer" ><u><strong>ALH effects</strong></u> - De magnifiques pédales boutiques</a> <br/>
+              <a href="https://www.facebook.com/Marty.Pedalboard/" target="_blank" rel="noreferrer" ><u><strong>Marty pedalboards</strong></u> - Des pedalboards sur mesure</a>
+            </p>
           </div>
+         
         </article>
+        <div className={styles.separator}></div>
         <article>
           <h2>Prise en charge du matériel</h2>
           <div className={styles.infosSection}> 
             <h3>Chez Hurricane musique - Vertou</h3>
             <p>PMS électronique travaille en collaboration avec <strong>HURRICANE MUSIQUE</strong>. Vous pouvez y déposer votre matériel aux horaires {"d'ouverture"} du magasin, <u><strong>après {"m'avoir"} téléphoné et reçu un numéro de prise en charge</strong></u>.</p>
             <p>
-              Adresse du magasin: { }
-              16 allée des cinq continents ZAC Pôle Sud - 44120 Vertou
+              <strong>Adresse du magasin:</strong> 16 allée des cinq continents ZAC Pôle Sud - 44120 Vertou
             </p>
-            <a href="https://hurricanemusic.fr">Accéder au site {"d'Hurricane"} musique</a>
+            <p><u><a href="https://hurricanemusic.fr" target="_blank" rel="noreferrer" >Accéder au site {"d'Hurricane"} musique</a></u></p>
             <p>{"Ne montez plus votre materiel à l'étage, il sera stocké au RDC après que vous vous soyez présenté"}</p>
           </div>
          
@@ -93,6 +112,10 @@ if (props.allInfos?.length) {
           </div>
           
         </article>
+        <div className={styles.separator}></div>
+        <p className={styles.siret}>
+          P.M.S électronique est une société inscrite au répertoire des métiers (SIRET:42139360400036)
+          </p>
       </section>
     </Layout>
 

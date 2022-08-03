@@ -2,12 +2,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 35px 50px;
+  padding: 15px 50px 15px 10px;
+
+  img {
+    height: 110px;
+  }
 
   a {
     font-size: 26px;
     color: rgb(136, 136, 136);
     text-decoration: none;
+
+    &:hover {
+      color: rgb(77, 77, 77);
+    }
   } 
 
   .active {
@@ -30,18 +38,8 @@
 }
 
 
-@media (max-width: 479px) {
+@media (max-width: 765px) { 
   .navBar {
-    padding: 20px;
-    z-index: 10;
-
-    a {
-      font-size: 16px;
-    }
-
-    a, h1 {
-      margin-bottom: 0;
-    }
     .burger {
       display: block;
     }
@@ -49,7 +47,8 @@
     .desktop {
       display: none;
     }
-  }  
+  }
+
   .mobile {
     position: absolute;
     display: flex;
@@ -58,7 +57,7 @@
     z-index: 10;
     background-color: white;
     padding-block: 20px;
-
+    padding-right: 5%;
     transform: translateX(-200%);
     transition: transform 1s;
     &.openMenu {
@@ -68,6 +67,30 @@
 
     a {
       margin-bottom: 0;
+      font-size: 37px;
     }
   }
+}
+
+@media (max-width: 479px) {
+  .navBar {
+    padding: 10px;
+    z-index: 10;
+
+    .mobile {
+      padding-inline: 10px;
+    }
+    img {
+      height: 70px;
+    }
+
+    a {
+      font-size: 16px;
+    }
+
+    a, h1 {
+      margin-bottom: 0;
+    }
+  }  
+  
 }

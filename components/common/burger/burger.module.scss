@@ -69,7 +69,31 @@
     width: 0%;
     left: 50%;
   }
+
+  @media (max-width: 479px) {
+      width: 30px;
+      height: 25px;
+    
+    .burgerBar { 
+      height: 3px;
+    }
+
+    .burgerBar:nth-child(1) {
+      top: 0px;
+    }
+    
+    .burgerBar:nth-child(2), .burgerBar:nth-child(3) {
+      top: 11px;
+    }
+    
+    .burgerBar:nth-child(4) {
+      top: 22px;
+    }
+  
+  }
   
 }
 
-
+@media (max-width: 1200px) {}
+@media (max-width: 1024px) {}
+@media (max-width: 768px) {}
