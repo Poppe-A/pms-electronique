@@ -3,13 +3,14 @@
   grid-template-columns: 1fr 1.8fr;
   grid-gap: 35px;
   max-width: 1440px;
-
+  padding-bottom: 0;
+  
   .separator {
     display: none;
   }
   article {
     padding: 25px;
-    border: solid 1px black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -76,7 +77,7 @@
       border: none;
       text-align: center;
       padding: 15px;
-
+      box-shadow: none;
       h2 {
         font-size: 36px;
       }

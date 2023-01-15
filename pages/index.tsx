@@ -1,15 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import styles from '../styles/index.module.scss'
 import Layout from '../components/common/layout'
 import Divider from '../components/common/divider'
 import Banner from '../components/common/banner/banner'
 import { request } from "../libs/datocms";
 import { useEffect, useState } from "react";
-const serviceImg = require( '../public/images/lampemetre.webp').default.src
+const serviceImg = require( '../public/images/ampeg.webp').default.src
 const expertiseImg = require('../public/images/orange.webp').default.src
-const commimentsImg = require('../public/images/insideAmp.webp').default.src
+const commimentsImg = require('../public/images/fender.webp').default.src
 
 const PRICE_QUERY = `query HomePage {
   prix {
@@ -55,7 +56,7 @@ const Home: NextPage = () => {
       <section className={styles.homeSection}>
         <article className={[styles.imageOnRight, styles.homeArticle].join(' ')}>
           <div className={styles.textContainer}>
-            <h3>Services</h3>
+            <h3>Nos Services</h3>
             <h4 className={styles.subTitle}>Sur amplis à lampes ou transistors (instruments et hifi), effets, claviers, matériel vintage et de sonorisation :</h4>
             <ul>
               <li>- Révisions</li>
@@ -67,29 +68,31 @@ const Home: NextPage = () => {
           </div>
             
           <div className={styles.imageContainer}>
-            <img 
+            <Image 
             src={serviceImg} 
             alt="Reparation ampli à lampe"
-            width="100%"  
+            layout="fill"
+            objectFit="contain"
           />
           </div>
         </article>
         <article className={[styles.imageOnLeft, styles.homeArticle].join(' ')}>
           <div className={styles.textContainer}>
-            <h3>Compétences</h3>
-            <h4>Connaissances approfondies sur : Marshall, Fender, Hiwatt, Vox, Orange, Laney, H.K, Mesa-boogie, Boss, Roland, E.H, Peavey, T-REX...</h4>
+            <h3>Nos Compétences</h3>
+            <h4>Connaissances approfondies sur : </h4>
+            <h4>Marshall, Fender, Hiwatt, Vox, Orange, Laney, H.K, Mesa-boogie, Boss, Roland, E.H, Peavey, T-REX...</h4>
             <p>Optimisation des amplis à chaque retubage en sélectionnant les tubes en fonction de votre style de musique !</p>
             <p>Appairage des tubes au lampe-mètre.</p>
           </div>
           <div className={styles.imageContainer}>
-            <img 
+            <Image 
               src={expertiseImg}
               alt="Ampli Nantes"
-              width="100%"
+              layout="fill"
+              objectFit="contain"
               className="image"
             />
           </div>
-          <p>{"L'atelier est équipé en : oscilloscopes, générateur de fréquence, multimètre, lampe-mètre, testeur de composants actifs, charges fictives, ..."}</p>
         </article>
         <article className={[styles.imageOnRight, styles.homeArticle].join(' ')}>
           <div className={styles.textContainer}>
@@ -110,10 +113,11 @@ const Home: NextPage = () => {
             </ul>
           </div>
           <div className={styles.imageContainer}>
-          <img 
+          <Image 
               src={commimentsImg}
               alt="Revision ampli"
-              width="100%"
+              layout="fill"
+              objectFit="contain"
             />
           </div>
         </article>

@@ -1,0 +1,36 @@
+.servicesContainer {
+  width: 95%;
+  display: flex;
+  flex-flow: wrap;
+  gap: 40px;
+  padding-bottom: 0;
+  justify-content: center;
+
+  .separator {
+    display: none;
+  }
+
+  .detailText {
+    text-align: center;
+  }
+}
+
+@media (max-width: 770px) {
+  .servicesContainer { 
+    flex-direction: column;
+    width: 100%;
+    padding-inline: 0;
+
+  .separator {
+    display: block;
+    border-bottom: 1px solid rgb(189, 189, 189);
+    margin-inline: 10%;
+    box-sizing: border-box;
+  }
+
+    .detailText {
+      padding-inline: 5px;
+      font-size: 12px;
+    }
+  }
+}

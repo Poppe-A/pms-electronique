@@ -18,6 +18,9 @@ export default function Navbar() {
       <Link href="/">
         <a className={router.asPath === '/' ? styles.active : ""}>{"L'ATELIER"}</a>
       </Link>
+      <Link href={`/services`}>
+        <a className={router.asPath === '/services/' ? styles.active : ""}>{"NOS SERVICES"}</a>
+      </Link>
       <Link href="/contact">
         <a className={router.asPath === '/contact/' ? styles.active : ""}>CONTACT</a>
       </Link>
@@ -26,13 +29,15 @@ export default function Navbar() {
   return (
     <>
       <nav className={styles.navBar}>
-      <img 
-        src={logo} 
-        alt="Logo PMS" 
-      />
+        <img 
+          src={logo} 
+          alt="Logo PMS" 
+        />
         <ul className={`${styles.mobile} ${isOpen ? styles.openMenu : ''}`}>
-          {links}
-      </ul>
+            {links}
+        </ul>
+        {/* backdrop only for mobile */}
+        <div className={`${styles.backdrop} ${isOpen ? styles.openMenu : ''}`}></div>
         <ul className={styles.desktop}>
           {links}
         </ul>

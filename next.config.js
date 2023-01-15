@@ -11,6 +11,7 @@ module.exports = {
   ) {
     return {
       '/': { page: '/' },
+      '/services': { page: '/services' },
       '/contact': { page: '/contact' }
     }
   },
