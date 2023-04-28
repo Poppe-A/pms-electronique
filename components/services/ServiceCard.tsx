@@ -7,19 +7,12 @@ const ServiceCard: FunctionComponent<ServiceContent> = (props: ServiceContent ) 
   const {title, text, imageName, small } = props
 
   const renderText = () => {
-    return text.map((t, index) => <p key={index}>{t}</p>)
+    // return "ooo"
+    return text.map((t) => <p key={text.length}>{t}</p>)
   }
 
   return (
     <article className={styles.card}>
-        {/* <Image 
-          className={styles.cardImage}
-          src={`/images/services/${imageName}.webp`}
-          alt={`Picture of an ${imageName}`}
-          layout='fill'
-          objectFit='cover'
-          objectPosition='center'
-        /> */}
         <h3>{title}</h3>
         <div className={small ? styles.small : ''}>
           {renderText()}

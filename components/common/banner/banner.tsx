@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react'
 import styles from './banner.module.scss'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 
 type Props = {
   text: string,

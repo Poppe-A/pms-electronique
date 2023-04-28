@@ -4,6 +4,9 @@ module.exports = {
   env: {
     datoCmsAPIKey: '0ff975b25dd7c96e039eb0fb0127f3'
   },
+  images: {
+    unoptimized: true,
+  },
   trailingSlash: true,
   exportPathMap: async function (
     defaultPathMap,

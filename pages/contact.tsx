@@ -48,6 +48,7 @@ const Contact: NextPage = () => {
   let infoList = null;
 
   if (infoData?.length) {
+    console.log("data", infoData)
     infoList = infoData.map(info => 
     <li key={info.id}><span className={styles.infoTitle}>{info.title}</span> : {info.text}</li>
     )

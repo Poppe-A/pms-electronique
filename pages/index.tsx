@@ -1,16 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import styles from '../styles/index.module.scss'
 import Layout from '../components/common/layout'
 import Divider from '../components/common/divider'
 import Banner from '../components/common/banner/banner'
 import { request } from "../libs/datocms";
 import { useEffect, useState } from "react";
-const serviceImg = require( '../public/images/ampeg.webp').default.src
-const expertiseImg = require('../public/images/orange.webp').default.src
-const commimentsImg = require('../public/images/fender.webp').default.src
 
 const PRICE_QUERY = `query HomePage {
   prix {
@@ -34,7 +31,7 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>PMS électronique - {"Spécialiste de l'amplification à lampes"} | </title>
+        <title>{"PMS électronique - Spécialiste de l'amplification à lampes"}</title>
         <meta name="description" content="Réparation, révision, modification sur amplis à lampes, materiel audio et instruments" />
         <meta property="og:title" content="PMS électronique - Spécialiste de l'amplification à lampes" />
         <meta
@@ -69,7 +66,7 @@ const Home: NextPage = () => {
             
           <div className={styles.imageContainer}>
             <Image 
-            src={serviceImg} 
+            src={'/images/ampeg.webp'} 
             alt="Reparation ampli à lampe"
             layout="fill"
             objectFit="contain"
@@ -86,7 +83,7 @@ const Home: NextPage = () => {
           </div>
           <div className={styles.imageContainer}>
             <Image 
-              src={expertiseImg}
+              src={'/images/orange.webp'}
               alt="Ampli Nantes"
               layout="fill"
               objectFit="contain"
@@ -114,7 +111,7 @@ const Home: NextPage = () => {
           </div>
           <div className={styles.imageContainer}>
           <Image 
-              src={commimentsImg}
+              src={'/images/fender.webp'}
               alt="Revision ampli"
               layout="fill"
               objectFit="contain"

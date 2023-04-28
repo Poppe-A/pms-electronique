@@ -1,12 +1,14 @@
 import { NextPage } from "next"
 import Head from "next/head"
 import image from "next/image"
+import React from "react"
 import Banner from "../components/common/banner/banner"
 import Layout from "../components/common/layout"
 import ServiceCard from "../components/services/ServiceCard"
 import styles from "../styles/services.module.scss"
 
 export type ServiceContent = {
+  id?: number,
   title: string
   text: string[],
   imageName: string,
@@ -15,6 +17,7 @@ export type ServiceContent = {
 
 const serviceContent: ServiceContent[] = [
   {
+    id: 1,
     title: '- Révision -',
     text: [
       'Démontage et Dépoussiérage',
@@ -30,6 +33,7 @@ const serviceContent: ServiceContent[] = [
     imageName: 'lampemetre'
   },
   {
+    id: 2,
     title: '- Optimisation -',
     text: [
       'Sélection des tubes et/ou composants', 
@@ -40,6 +44,7 @@ const serviceContent: ServiceContent[] = [
     imageName: 'lampemetre'
   },
   {
+    id: 3,
     title: '- Dépannage et rénovation -',
     text: [
       'Recherche des causes de dysfonctionnement',
@@ -51,6 +56,7 @@ const serviceContent: ServiceContent[] = [
     imageName: 'lampemetre'
   },
   {
+    id: 4,
     title: '- Controle -',
     text: [
       'Nettoyage',
@@ -69,7 +75,7 @@ const Services: NextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>PMS électronique - {"Spécialiste de l'amplification à lampes"} | </title>
+        <title>{"PMS électronique - Spécialiste de l'amplification à lampes"}</title>
         <meta name="description" content="Réparation, révision, modification sur amplis à lampes, materiel audio et instruments" />
         <meta property="og:title" content="PMS électronique - Spécialiste de l'amplification à lampes" />
         <meta
@@ -84,10 +90,10 @@ const Services: NextPage = () => {
 
      
       <section className={styles.servicesContainer}>
-        {serviceContent.map((elm, index) => <>
-          <ServiceCard key={index} title={elm.title} text={elm.text} imageName={elm.imageName} small={elm.small}/>
-          <div key={index} className={styles.separator}></div>
-        </>)}
+        {serviceContent.map((elm) => <React.Fragment key={elm.id}>
+          <ServiceCard title={elm.title} text={elm.text} imageName={elm.imageName} small={elm.small}/>
+          <div className={styles.separator}></div>
+        </React.Fragment>)}
         <div>
           <p className={styles.detailText}>{`L'atelier est équipé en : oscilloscopes, générateur de fréquence, multimètre, lampe-mètre, testeur de composants actifs, charges fictives, ...`}</p>
           <p className={styles.detailText}>{`Nos composants sont choisis au mieux afin de respecter l'appareil tout en se conformant aux schémas, selon vos attentes en terme de son`}</p>
